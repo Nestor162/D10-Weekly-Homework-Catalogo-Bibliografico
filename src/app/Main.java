@@ -40,6 +40,9 @@ public class Main {
 		addPublication(book2, catalog);
 		addPublication(book3, catalog);
 
+		removePublicationFromISBN(catalog, "01497939");
+		removePublicationFromISBN(catalog, "00000000");
+
 		ISBNSearch(catalog, "0040781X");
 
 		yearSearch(catalog, 2006);
@@ -56,7 +59,26 @@ public class Main {
 
 	}
 
-	// Funzione 2 - Ricerca per ISBN
+	// Funzione 2 - Rimozione di un elemento dato un codice ISBN
+	public static void removePublicationFromISBN(List<Publication> catalog,
+			String queryISBN) {
+
+		Predicate<Publication> isISBNequalToQuery = pub -> pub.getISBN()
+				.equals(queryISBN);
+
+		boolean removed = catalog.removeIf(isISBNequalToQuery);
+
+		if (removed) {
+			System.out.println("Pubblicazione con ISBN " + queryISBN
+					+ " rimossa correttamente." + System.lineSeparator());
+		} else {
+			System.out.println("Nessuna pubblicazione trovata con ISBN "
+					+ queryISBN + "." + System.lineSeparator());
+		}
+
+	}
+
+	// Funzione 3 - Ricerca per ISBN
 	public static void ISBNSearch(List<Publication> catalog, String queryISBN) {
 
 		Predicate<Publication> isISBNequalToQuery = pub -> pub.getISBN()
@@ -69,7 +91,7 @@ public class Main {
 				+ ": " + System.lineSeparator() + ISBNSearchResult);
 	}
 
-	// Funzione 3 - Ricerca per anno pubblicazione
+	// Funzione 4 - Ricerca per anno pubblicazione
 	public static void yearSearch(List<Publication> catalog, int queryYear) {
 
 		Predicate<Publication> isYearEqualToQuery = pub -> pub
@@ -82,7 +104,7 @@ public class Main {
 				+ ": " + System.lineSeparator() + yearSearchResult);
 	}
 
-	// Funzione 4 - Ricerca per autore
+	// Funzione 5 - Ricerca per autore
 	public static void authorSearch(List<Publication> catalog,
 			String queyAuthorName) {
 
@@ -102,4 +124,6 @@ public class Main {
 				+ System.lineSeparator() + authorSearchResult);
 
 	}
+
+	// Funzione 6 -
 }

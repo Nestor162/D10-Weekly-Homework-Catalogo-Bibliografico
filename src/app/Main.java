@@ -1,8 +1,12 @@
 package app;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+
+import org.apache.commons.io.FileUtils;
 
 import entities.Book;
 import entities.Magazine;
@@ -48,6 +52,12 @@ public class Main {
 		yearSearch(catalog, 2006);
 
 		authorSearch(catalog, "George Orwell");
+
+		try {
+			saveToFile(catalog);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -125,8 +135,10 @@ public class Main {
 
 	}
 
-	// Funzione 6 - salvataggio su disco delllarchivio
-	public static void saveTOFile() {
-
+	// Funzione 6 - Salvataggio su disco dell'archivio
+	public static void saveToFile(List<Publication> catalog)
+			throws IOException {
+		File CatalogFile = new File("catalog.txt");
+		FileUtils.write(CatalogFile, catalog.toString(), "UTF-8", false);
 	};
 }

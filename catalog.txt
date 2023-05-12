@@ -1,0 +1,6 @@
+[Magazine [frequency=MONTHLY, ISBN=00062510, title=National Geographic, publicationYear=2021, numPages=126]
+, Magazine [frequency=WEEKLY, ISBN=0040781X, title=Time, publicationYear=2022, numPages=96]
+, Book [author=Brandon Sanderson, genre=Fantasy Novel, ISBN=9780765350381, title=Mistborn: The Final Empire, publicationYear=2006, numPages=541]
+, Book [author=George Orwell, genre=Dystopian Novel, ISBN=9780451524935, title=1984, publicationYear=1949, numPages=328]
+, Book [author=Isaac Asimov, genre=Science Fiction Novel, ISBN=9780553293357, title=Foundation, publicationYear=1951, numPages=255]
+]

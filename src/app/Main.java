@@ -44,6 +44,8 @@ public class Main {
 
 		yearSearch(catalog, 2006);
 
+		authorSearch(catalog, "George Orwell");
+
 	}
 
 	// Funzione 1 - Aggiunta di un elemento
@@ -78,5 +80,26 @@ public class Main {
 
 		System.out.println("Elementi trovati pubblicati nel anno " + queryYear
 				+ ": " + System.lineSeparator() + yearSearchResult);
+	}
+
+	// Funzione 4 - Ricerca per autore
+	public static void authorSearch(List<Publication> catalog,
+			String queyAuthorName) {
+
+		Predicate<Publication> isAuthorEqualToQuery = pub -> {
+
+			if (pub instanceof Book) {
+				Book book = (Book) pub;
+				return book.getAuthor().equalsIgnoreCase(queyAuthorName);
+			}
+			return false;
+		};
+
+		List<Publication> authorSearchResult = catalog.stream()
+				.filter(isAuthorEqualToQuery).toList();
+
+		System.out.println("Elementi pubblicati da  " + queyAuthorName + ": "
+				+ System.lineSeparator() + authorSearchResult);
+
 	}
 }

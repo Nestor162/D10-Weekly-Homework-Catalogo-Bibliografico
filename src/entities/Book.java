@@ -31,7 +31,7 @@ public class Book extends Publication {
 	public String toString() {
 		return "Book [author=" + author + ", genre=" + genre + ", ISBN=" + ISBN
 				+ ", title=" + title + ", publicationYear=" + publicationYear
-				+ ", numPages=" + numPages + "]";
+				+ ", numPages=" + numPages + "]" + System.lineSeparator();
 	}
 
 }

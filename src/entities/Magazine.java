@@ -25,7 +25,7 @@ public class Magazine extends Publication {
 	public String toString() {
 		return "Magazine [frequency=" + frequency + ", ISBN=" + ISBN
 				+ ", title=" + title + ", publicationYear=" + publicationYear
-				+ ", numPages=" + numPages + "]";
+				+ ", numPages=" + numPages + "]" + System.lineSeparator();
 	}
 
 }

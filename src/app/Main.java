@@ -125,5 +125,8 @@ public class Main {
 
 	}
 
-	// Funzione 6 -
+	// Funzione 6 - salvataggio su disco delllarchivio
+	public static void saveTOFile() {
+
+	};
 }

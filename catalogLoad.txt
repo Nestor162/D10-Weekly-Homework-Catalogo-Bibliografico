@@ -1,0 +1,9 @@
+Book,Foundation,9780553293357,1951,255,Isaac Asimov,Science Fiction Novel
+Book,I Robot,9780553293357,1950,256,Isaac Asimov,Science Fiction Novel
+Book,Dune,9780593099322,1965,412,Frank Herbert,Science Fiction Novel
+Book,To Kill a Mockingbird,9780062409874,1960,324,Harper Lee,Southern Gothic Novel
+Book,Murder on the Orient Express,9780062693662,1934,274,Agatha Christie,Crime Fiction
+Book,Nineteen Eighty-Four,9780141187761,1949,328,George Orwell,Dystopian Novel
+Book,One Hundred Years of Solitude,9780061120084,1967,417,Gabriel García Márquez,Magical Realism Novel
+Magazine,National Geographic,00062510,2021,126,MONTHLY
+Magazine,Time,0040781X,2022,96,WEEKLY

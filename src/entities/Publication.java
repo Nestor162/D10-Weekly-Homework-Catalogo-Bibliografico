@@ -14,6 +14,8 @@ public abstract class Publication {
 		this.numPages = numPages;
 	}
 
+	public abstract String toExportFormat();
+
 	public String getISBN() {
 		return ISBN;
 	}

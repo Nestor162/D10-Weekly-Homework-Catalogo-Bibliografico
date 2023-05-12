@@ -34,4 +34,11 @@ public class Book extends Publication {
 				+ ", numPages=" + numPages + "]" + System.lineSeparator();
 	}
 
+	@Override
+	// Uso il formato CSV (comma separated values)
+	public String toExportFormat() {
+		return String.format("%s,%s,%s,%d,%d,%s,%s", "Book", title, ISBN,
+				publicationYear, numPages, author, genre);
+	}
+
 }

@@ -54,8 +54,15 @@ public class Main {
 		authorSearch(catalog, "George Orwell");
 
 		try {
-			saveToFile(catalog);
+			saveToFile(catalog, "catalog.txt");
 		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		try {
+			loadFromFile("catalogLoad.txt");
+		} catch (IOException e) {
+
 			e.printStackTrace();
 		}
 
@@ -136,9 +143,57 @@ public class Main {
 	}
 
 	// Funzione 6 - Salvataggio su disco dell'archivio
-	public static void saveToFile(List<Publication> catalog)
+	public static void saveToFile(List<Publication> catalog, String fileName)
 			throws IOException {
-		File CatalogFile = new File("catalog.txt");
-		FileUtils.write(CatalogFile, catalog.toString(), "UTF-8", false);
+		File catalogFile = new File(fileName);
+
+		StringBuilder sb = new StringBuilder();
+		for (Publication publication : catalog) {
+			sb.append(publication.toExportFormat())
+					.append(System.lineSeparator());
+		}
+
+		FileUtils.write(catalogFile, sb.toString(), "UTF-8", false);
+		System.out.println("Salvato il catalogo su file " + fileName
+				+ System.lineSeparator());
 	};
+
+	// Funzione 7 - Caricamento dal disco dell'archivio
+	public static void loadFromFile(String fileName) throws IOException {
+		List<Publication> catalogLoaded = new ArrayList<>();
+		File CatalogFile = new File(fileName);
+
+		String content = FileUtils.readFileToString(CatalogFile, "UTF-8");
+		String[] publications = content.split("\n");
+
+		for (String publication : publications) {
+			String[] attributes = publication.split(",");
+
+			if (attributes[0].equals("Magazine")) {
+
+				Magazine magazine = new Magazine(attributes[1], attributes[2],
+						Integer.parseInt(attributes[3]),
+						Integer.parseInt(attributes[4]));
+
+				catalogLoaded.add(magazine);
+
+			} else if (attributes[0].equals("Book")) {
+
+				Book book = new Book(attributes[1], attributes[2],
+						Integer.parseInt(attributes[3]),
+						Integer.parseInt(attributes[4]), attributes[5],
+						attributes[6]);
+
+				catalogLoaded.add(book);
+			}
+
+		}
+		System.out.println("Caricato il catalogo proveniente da " + fileName
+				+ System.lineSeparator());
+
+		System.out.println("Contenuto: " + System.lineSeparator()
+				+ catalogLoaded + System.lineSeparator());
+
+	}
+
 }
